@@ -1,3 +1,5 @@
+#ENV Edits
+$env:EDITOR = "code"
 #Aliases
 new-alias e explorer
 new-alias c code
