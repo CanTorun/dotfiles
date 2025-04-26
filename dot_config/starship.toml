@@ -1,0 +1,84 @@
+#KhalaAzar - CT 04.25
+
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+# A minimal left prompt
+format = """
+$os\
+$username\
+$hostname\
+$python\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$character"""
+
+[os]
+format = "[$symbol ]($style)"
+style = "white"
+disabled = false
+
+[os.symbols]
+Kali = "󰒃"
+Linux = "🐧"
+Macos = ""
+Windows = ""
+
+[username]
+style_user = 'grey'
+style_root = 'red bold'
+format = '[]($style) '
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = true
+ssh_symbol = '🌐 '
+format = '[$ssh_symbol](bold blue)[$hostname](bold red) '
+trim_at = '.companyname.com'
+disabled = false
+
+[python]
+#format = '\($virtualenv\) '
+style = 'green'
+version_format = '${major}.${minor}'
+format = '[${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+symbol = ""
+
+[directory]
+style = "blue"
+use_os_path_sep = false
+truncate_to_repo = true
+
+[git_branch]
+format = 'on [$symbol $branch(:$remote_branch)]($style) '
+style = 'bold green'
+symbol = ''
+
+[git_status]
+style = "#f05133"
+format = ' $conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind'
+conflicted = "[ ](fg:88)[   ${count} ](fg:white bg:88)[ ](fg:88)"
+staged = "[M$count ](fg:green)"
+modified = "[M${count} ](fg:yellow)"
+renamed = "[R${count} ](fg:208)"
+deleted = "[${count} ](fg:208)"
+untracked = "[?${count} ](fg:red)"
+stashed = " ${count} "
+ahead = "[ ${count} ](fg:purple)"
+behind = "[ ${count} ](fg:yellow)"
+diverged = "[](fg:88)[  נּ ](fg:white bg:88)[ ${ahead_count} ](fg:purple bg:88)[ ${behind_count} ](fg:yellow bg:88)[ ](fg:88)"
+
+[cmd_duration]
+format = '[$duration]($style) '
+show_notifications = true
+
+[character]
+success_symbol = "[❯](red)[❯](yellow)[❯](green)"
+error_symbol = "[❯](red)[❯](yellow)[❯](red)"
+vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
+[line_break]
+disabled = true
