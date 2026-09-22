@@ -1,5 +1,5 @@
 Git.Git
 Microsoft.VisualStudioCode
-MarkText
+MarkText.MarkText
 Starship.Starship
 Microsoft.WindowsTerminal
