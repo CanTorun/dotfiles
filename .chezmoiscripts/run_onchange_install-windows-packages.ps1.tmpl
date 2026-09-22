@@ -1,0 +1,23 @@
+# Manifest checksum: {{ include "packages/windows-winget.txt" | sha256sum }}
+
+$manifest = "{{ .chezmoi.sourceDir }}\packages\windows-winget.txt"
+
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Error "winget was not found."
+    exit 1
+}
+
+Get-Content $manifest |
+    Where-Object { $_.Trim() -and -not $_.Trim().StartsWith("#") } |
+    ForEach-Object {
+        $id = $_.Trim()
+
+        Write-Host "Installing: $id"
+
+        winget install `
+            --id $id `
+            --exact `
+            --source winget `
+            --accept-source-agreements `
+            --accept-package-agreements
+    }
