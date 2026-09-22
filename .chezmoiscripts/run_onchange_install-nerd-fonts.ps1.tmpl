@@ -1,0 +1,22 @@
+# Manifest checksum: {{ include "packages/nerd-fonts.txt" | sha256sum }}
+
+$manifest = "{{ .chezmoi.sourceDir }}\packages\nerd-fonts.txt"
+$installerUrl = "https://to.loredo.me/Install-NerdFont.ps1"
+$PSDefaultParameterValues['Invoke-WebRequest:UseBasicParsing'] = $true
+
+if (-not (Get-Command Invoke-WebRequest -ErrorAction SilentlyContinue)) {
+    Write-Error "Invoke-WebRequest was not found."
+    exit 1
+}
+
+$script = Invoke-WebRequest -Uri $installerUrl -UseBasicParsing
+
+Get-Content $manifest |
+    Where-Object { $_.Trim() -and -not $_.Trim().StartsWith("#") } |
+    ForEach-Object {
+        $font = $_.Trim()
+
+        Write-Host "Installing Nerd Font: $font"
+
+        & ([scriptblock]::Create($script.Content)) -Confirm:$false -Name $font
+    }
