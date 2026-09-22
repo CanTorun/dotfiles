@@ -140,3 +140,88 @@ Windows applications
   ↓
 VS Code extensions
 ```
+
+#### Nerd Fonts
+
+Nerd Fonts are installed from the manifest:
+
+`packages/nerd-fonts.txt`
+
+Example:
+
+```text
+fira-mono
+```
+
+The installer is managed by:
+
+`.chezmoiscripts/run_onchange_install-nerd-fonts.ps1.tmpl`
+
+The script downloads the community PowerShell installer and installs every font listed in the manifest.
+
+The manifest checksum is embedded in the chezmoi template, so changing `nerd-fonts.txt` automatically triggers the installer on the next:
+
+```powershell
+chezmoi apply
+```
+
+The installer runs with:
+
+- `-Confirm:$false` for unattended installation.
+
+- `UseBasicParsing` enabled through `$PSDefaultParameterValues` to avoid the Windows PowerShell 5.1 script-execution warning.
+
+### Finding a Font Name
+
+The installer provides a built-in font search/list function.
+
+List all available fonts:
+
+```powershell
+& ([scriptblock]::Create((iwr 'https://to.loredo.me/Install-NerdFont.ps1'))) -List All
+```
+
+Search for a specific font:
+
+```powershell
+& ([scriptblock]::Create((iwr 'https://to.loredo.me/Install-NerdFont.ps1'))) -List "Fira*"
+```
+
+The value to use in `packages/nerd-fonts.txt` is the **`Name`** column, not `DisplayName`.
+
+For example:
+
+```text
+Name       DisplayName
+----       -----------
+fira-code  FiraCode Nerd Font
+fira-mono  FiraMono Nerd Font
+```
+
+The manifest should therefore contain:
+
+```text
+fira-mono
+```
+
+### Adding a Nerd Font
+
+1. Find the font name using `-List`.
+
+2. Add the `Name` value to `packages/nerd-fonts.txt`.
+
+3. Run:
+
+```powershell
+chezmoi apply
+```
+
+For example:
+
+```text
+fira-mono
+hack
+jetbrains-mono
+```
+
+The manifest controls **installation only**. Removing a font from `nerd-fonts.txt` does not uninstall it from the machine.
