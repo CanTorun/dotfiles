@@ -1,0 +1,19 @@
+# Manifest checksum: {{ include "packages/vscode-extensions.txt" | sha256sum }}
+
+$manifest = "{{ .chezmoi.sourceDir }}\packages\vscode-extensions.txt"
+
+if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
+    Write-Error "VS Code CLI was not found."
+    exit 1
+}
+
+Get-Content $manifest |
+    Where-Object { $_.Trim() -and -not $_.Trim().StartsWith("#") } |
+    ForEach-Object {
+        $extension = $_.Trim()
+
+        Write-Host "Installing VS Code extension: $extension"
+
+        code --install-extension $extension
+    }
+
