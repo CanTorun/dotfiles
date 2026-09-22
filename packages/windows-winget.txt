@@ -1,0 +1,5 @@
+Git.Git
+Microsoft.VisualStudioCode
+MarkText
+Starship.Starship
+Microsoft.WindowsTerminal
