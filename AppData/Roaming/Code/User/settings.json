@@ -1,0 +1,13 @@
+{
+    "editor.stickyScroll.enabled": false,
+    "editor.unicodeHighlight.allowedCharacters": {
+        "ş": true
+    },
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "dart.flutterSdkPath": "C:\\src\\flutter\\flutter",
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New'",
+    "editor.fontSize": 20,
+    "editor.fontLigatures": true
+}
