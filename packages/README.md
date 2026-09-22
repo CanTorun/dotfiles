@@ -115,9 +115,11 @@ The `run_onchange_install-vscode-extensions.ps1.tmpl` chezmoi script reads this 
 
 To add an extension:
 
-1. Add its extension ID to `packages/vscode-extensions.txt`.
+1. List installed extensions with ` code --list-extensions `
 
-2. Run:
+2. Add its extension ID to `packages/vscode-extensions.txt`.
+
+3. Run:
 
 ```powershell
 chezmoi apply
