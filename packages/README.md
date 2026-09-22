@@ -82,3 +82,61 @@ WinGet / VS Code
 ```
 
 The manifests therefore describe **what should be installed**, while the scripts describe **how it should be installed**.
+
+## Bootstrap Packages
+
+The repository maintains package manifests for applications and VS Code extensions.
+
+### Windows applications
+
+`packages/windows-winget.txt` contains the Windows applications that should be installed on a new machine.
+
+The `run_onchange_install-windows-packages.ps1.tmpl` chezmoi script reads this manifest and installs the listed applications through `winget`.
+
+To add an application:
+
+1. Find its exact winget package ID.
+
+2. Add the ID to `packages/windows-winget.txt`.
+
+3. Run:
+
+```powershell
+chezmoi apply
+```
+
+The manifest checksum is included in the generated script, so changing the manifest automatically triggers the installation script.
+
+### VS Code extensions
+
+`packages/vscode-extensions.txt` contains the VS Code extensions that should be installed on a new machine.
+
+The `run_onchange_install-vscode-extensions.ps1.tmpl` chezmoi script reads this manifest and installs the listed extensions through the VS Code CLI.
+
+To add an extension:
+
+1. Add its extension ID to `packages/vscode-extensions.txt`.
+
+2. Run:
+
+```powershell
+chezmoi apply
+```
+
+The manifest checksum ensures that changes to the extension list trigger the script again.
+
+The bootstrap process installs extensions listed in the manifest but does not remove extensions that are not listed.
+
+### Current bootstrap flow
+
+```text
+Git
+  ↓
+chezmoi
+  ↓
+dotfiles
+  ↓
+Windows applications
+  ↓
+VS Code extensions
+```
