@@ -5,3 +5,4 @@ Starship.Starship
 Microsoft.WindowsTerminal
 Python.Python.3.14
 GoLang.Go
+Vivaldi.Vivaldi
