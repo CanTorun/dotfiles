@@ -1,4 +1,5 @@
 Git.Git
+Microsoft.PowerShell
 Microsoft.VisualStudioCode
 MarkText.MarkText
 Starship.Starship

@@ -5,7 +5,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{a2e7ebd2-beac-438d-b8b5-64bace351579}",
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "Terminal.CopyToClipboard",
@@ -28,21 +28,21 @@
             "keys": "ctrl+f1"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
         "defaults": {},
-        "list": 
+        "list":
         [
             {
                 "colorScheme": "One Half Dark",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "font": 
+                "font":
                 {
                     "face": "FiraMono Nerd Font Mono",
                     "size": 14
@@ -68,9 +68,9 @@
                 "antialiasingMode": "grayscale",
                 "closeOnExit": "automatic",
                 "colorScheme": "One Half Dark",
-                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                "commandline": "pwsh.exe",
                 "cursorShape": "bar",
-                "font": 
+                "font":
                 {
                     "face": "FiraMono Nerd Font Mono",
                     "size": 14
@@ -78,12 +78,18 @@
                 "guid": "{a2e7ebd2-beac-438d-b8b5-64bace351579}",
                 "hidden": false,
                 "historySize": 9001,
-                "icon": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                "icon": "none",
                 "name": "PowerShell 7",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
