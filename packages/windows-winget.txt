@@ -1,7 +1,7 @@
 Git.Git
 Microsoft.PowerShell
 Microsoft.VisualStudioCode
-MarkText.MarkText
+oipoistar.Tinta
 Starship.Starship
 Microsoft.WindowsTerminal
 Python.Python.3.14
