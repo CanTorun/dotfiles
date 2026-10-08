@@ -1,9 +1,9 @@
 Git.Git
 Microsoft.PowerShell
 Microsoft.VisualStudioCode
-oipoistar.Tinta
 Starship.Starship
 Microsoft.WindowsTerminal
 Python.Python.3.14
 GoLang.Go
 Zen-Team.Zen-Browser
+oipoistar.Tinta
