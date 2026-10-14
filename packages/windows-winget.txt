@@ -8,3 +8,4 @@ GoLang.Go
 Zen-Team.Zen-Browser
 oipoistar.Tinta
 IDRIX.VeraCrypt
+Rizonesoft.Notepad3
